@@ -23,20 +23,41 @@ class MountainBike(Bicycles):  # Subclass type of Bicycles
         print("{} is your favotire type of mountain bike, while {} is the most popular bike brand out there followed by {}".format(self.brandtype, self.__mostPopularBrand, self.__secondMostPopularBrand))
 
     def WheelChoice(self):
-        if self.__numberOfWheels > 0:
-            self.__numberOfWheels = self.__numberOfWheels +- 1 # need to fix this so that when they select 3 they are able to either choose to add or subtract a Wheel
-            print("Your bike has {} wheels".format(self.__numberOfWheels))
-        else:
-            print("Your bike has no wheels!")
+        print("Would you like to add or subtract Wheels")
+        userinput = input() # String
+        numWheels = 0
+        if userinput == "add":
+            print("How many would you like to add?")
+            numWheels = int(input())
+        elif userinput == "subtract":
+            while True:
+                print("How many would you like to remove?")
+                numWheels = int(input()) * -1
+                if self.__numberOfWheels + numWheels >= 0:
+                    break
+                else:
+                    print("You cannot have a negative number of wheels, please choose another number!")
+        self.__numberOfWheels = self.__numberOfWheels + numWheels
+        print("Your bike has {} wheels".format(self.__numberOfWheels))
 
     def PedalChoice(self):
-        if self.__numberOfPedals > 0:
-            self.__numberOfPedals = self.__numberOfPedals +- 1 # need to fix this so that when they select 4 they are able to either choose to add or subtract a Pedal
-            print("Your bike has {} pedals".format(self.__numberOfPedals))
-        else:
-            print("Your bike has no pedals!")
+        print("Would you like to add or subtract Pedals")
+        userinput = input() # String
+        numPedals = 0
+        if userinput == "add":
+            print("How many would you like to add?")
+            numPedals = int(input())
+        elif userinput == "subtract":
+            while True:
+                print("How many would you like to remove?")
+                numPedals = int(input()) * -1
+                if self.__numberOfPedals + numPedals >= 0:
+                    break
+                else:
+                    print("You cannot have a negative number of pedals, please choose another number!")
+        self.__numberOfPedals = self.__numberOfPedals + numPedals
+        print("Your bike has {} pedals".format(self.__numberOfPedals))
         
-
 
 bike = MountainBike()
 
