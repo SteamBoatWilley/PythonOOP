@@ -1,5 +1,5 @@
 class Square:
-    def __init__(self, side):
+    def __init__(self, side): # Make the function run with the __init__ function with self/side 
         self.side = side
 
     # Overload the exponent operator with the "__pow__() function"
